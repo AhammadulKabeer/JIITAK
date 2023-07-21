@@ -37,12 +37,16 @@ class MyHomePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           vertical: R.sh(6, context),
                           horizontal: R.sw(18, context)),
-                      child: Text(
-                        "北海道, 札幌市",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: R.sw(12, context),
-                            fontWeight: FontWeight.w500),
+                      child: SizedBox(
+                        height: R.sh(10, context),
+                        width: R.sw(50, context),
+                        child: Text(
+                          "北海道, 札幌市",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: R.sw(12, context),
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
                     )),
                 Image.asset(
@@ -123,26 +127,39 @@ class MyHomePage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
-                                      controller.day[index],
-                                      style: TextStyle(
-                                          fontSize: R.sw(17, context),
-                                          fontWeight: FontWeight.bold,
-                                          color:
-                                              controller.calenderIndex.value ==
+                                    SizedBox(
+                                      height: R.sh(30, context),
+                                      width: R.sw(50, context),
+                                      child: Center(
+                                        child: Text(
+                                          controller.day[index],
+                                          style: TextStyle(
+                                              fontSize: R.sw(17, context),
+                                              fontWeight: FontWeight.bold,
+                                              color: controller.calenderIndex
+                                                          .value ==
                                                       index
                                                   ? Colors.white
                                                   : Colors.black),
+                                        ),
+                                      ),
                                     ),
-                                    Text(
-                                      controller.date[index],
-                                      style: TextStyle(
-                                        fontSize: R.sw(17, context),
-                                        fontWeight: FontWeight.bold,
-                                        color: controller.calenderIndex.value ==
-                                                index
-                                            ? Colors.white
-                                            : Colors.black,
+                                    SizedBox(
+                                      height: R.sh(30, context),
+                                      width: R.sw(50, context),
+                                      child: Center(
+                                        child: Text(
+                                          controller.date[index],
+                                          style: TextStyle(
+                                            fontSize: R.sw(17, context),
+                                            fontWeight: FontWeight.bold,
+                                            color: controller
+                                                        .calenderIndex.value ==
+                                                    index
+                                                ? Colors.white
+                                                : Colors.black,
+                                          ),
+                                        ),
                                       ),
                                     )
                                   ],
@@ -374,13 +391,19 @@ class MyHomePage extends StatelessWidget {
                                   ? Colors.amber
                                   : Colors.grey,
                             ),
-                            Text(
-                              "さがす",
-                              style: TextStyle(
-                                fontSize: R.sw(8, context),
-                                color: controller.selectScreen.value == 0
-                                    ? Colors.amber
-                                    : Colors.grey,
+                            SizedBox(
+                              height: R.sh(20, context),
+                              width: R.sw(50, context),
+                              child: Center(
+                                child: Text(
+                                  "さがす",
+                                  style: TextStyle(
+                                    fontSize: R.sw(8, context),
+                                    color: controller.selectScreen.value == 0
+                                        ? Colors.amber
+                                        : Colors.grey,
+                                  ),
+                                ),
                               ),
                             )
                           ],
@@ -402,13 +425,19 @@ class MyHomePage extends StatelessWidget {
                                   ? Colors.amber
                                   : Colors.grey,
                             ),
-                            Text(
-                              "お仕事",
-                              style: TextStyle(
-                                fontSize: R.sw(8, context),
-                                color: controller.selectScreen.value == 1
-                                    ? Colors.amber
-                                    : Colors.grey,
+                            SizedBox(
+                              height: R.sh(20, context),
+                              width: R.sw(50, context),
+                              child: Center(
+                                child: Text(
+                                  "お仕事",
+                                  style: TextStyle(
+                                    fontSize: R.sw(8, context),
+                                    color: controller.selectScreen.value == 1
+                                        ? Colors.amber
+                                        : Colors.grey,
+                                  ),
+                                ),
                               ),
                             )
                           ],
@@ -419,13 +448,13 @@ class MyHomePage extends StatelessWidget {
                   //!RIGHT NAV BAR
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       MaterialButton(
                         minWidth: R.sw(40, context),
                         onPressed: () {
-                          // setState(() {
                           controller.selectScreen.value = 2;
-                          // });
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -436,13 +465,19 @@ class MyHomePage extends StatelessWidget {
                                   ? Colors.amber
                                   : Colors.grey,
                             ),
-                            Text(
-                              "チャット",
-                              style: TextStyle(
-                                fontSize: R.sw(8, context),
-                                color: controller.selectScreen.value == 2
-                                    ? Colors.amber
-                                    : Colors.grey,
+                            SizedBox(
+                              height: R.sh(20, context),
+                              width: R.sw(50, context),
+                              child: Center(
+                                child: Text(
+                                  "チャット",
+                                  style: TextStyle(
+                                    fontSize: R.sw(8, context),
+                                    color: controller.selectScreen.value == 2
+                                        ? Colors.amber
+                                        : Colors.grey,
+                                  ),
+                                ),
                               ),
                             )
                           ],
@@ -451,9 +486,7 @@ class MyHomePage extends StatelessWidget {
                       MaterialButton(
                         minWidth: R.sw(40, context),
                         onPressed: () {
-                          // setState(() {
                           controller.selectScreen.value = 3;
-                          // });
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -464,13 +497,19 @@ class MyHomePage extends StatelessWidget {
                                   ? Colors.amber
                                   : Colors.grey,
                             ),
-                            Text(
-                              "マイページ",
-                              style: TextStyle(
-                                fontSize: R.sw(8, context),
-                                color: controller.selectScreen.value == 3
-                                    ? Colors.amber
-                                    : Colors.grey,
+                            SizedBox(
+                              height: R.sh(20, context),
+                              width: R.sw(50, context),
+                              child: Center(
+                                child: Text(
+                                  "マイページ",
+                                  style: TextStyle(
+                                    fontSize: R.sw(8, context),
+                                    color: controller.selectScreen.value == 3
+                                        ? Colors.amber
+                                        : Colors.grey,
+                                  ),
+                                ),
                               ),
                             )
                           ],
@@ -499,11 +538,17 @@ class MyHomePage extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    Text(
-                      "マイページ",
-                      style: TextStyle(
-                        fontSize: R.sw(8, context),
-                        color: Colors.grey,
+                    SizedBox(
+                      height: R.sh(20, context),
+                      width: R.sw(50, context),
+                      child: Center(
+                        child: Text(
+                          "マイページ",
+                          style: TextStyle(
+                            fontSize: R.sw(8, context),
+                            color: Colors.grey,
+                          ),
+                        ),
                       ),
                     )
                   ],

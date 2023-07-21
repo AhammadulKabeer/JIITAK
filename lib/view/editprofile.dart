@@ -34,6 +34,7 @@ dynamic drobdownvalue = list.first;
 dynamic drobdownvalue2 = list[1];
 dynamic drobdownvalue3 = list[2];
 dynamic drobdownvalue4 = list[3];
+dynamic bool = false;
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -71,7 +72,7 @@ class _EditProfileState extends State<EditProfile> {
                             icon: Icon(
                               Icons.arrow_back_ios_new_rounded,
                               size: R.sw(20, context),
-                              color: Color(0xffB8B8B8),
+                              color: const Color(0xffB8B8B8),
                             )),
                       ),
                       Text(
@@ -92,7 +93,7 @@ class _EditProfileState extends State<EditProfile> {
                             top: R.sw(3, context),
                             child: CircleAvatar(
                               radius: R.sw(9, context),
-                              backgroundColor: Color(0xffEE7D42),
+                              backgroundColor: const Color(0xffEE7D42),
                               child: Center(
                                 child: Text(
                                   "99+",
@@ -196,12 +197,12 @@ class _EditProfileState extends State<EditProfile> {
                                               "assets/images/gallery.png",
                                               width: R.sw(30, context),
                                               height: R.sh(30, context),
-                                              color: Color(0xff9C9896),
+                                              color: const Color(0xff9C9896),
                                             )),
                                         Text(
                                           "写真を追加",
                                           style: TextStyle(
-                                            color: Color(0xff9C9896),
+                                            color: const Color(0xff9C9896),
                                             fontSize: R.sw(12, context),
                                           ),
                                         )
@@ -291,13 +292,13 @@ class _EditProfileState extends State<EditProfile> {
                                           left: R.sw(30, context)),
                                       child: Icon(
                                         Icons.keyboard_arrow_down_outlined,
-                                        color: Color(0xffC7C4C0),
+                                        color: const Color(0xffC7C4C0),
                                         size: R.sw(25, context),
                                       ),
                                     ),
                                     value: drobdownvalue,
                                     style: TextStyle(
-                                        color: Color(0xff454545),
+                                        color: const Color(0xff454545),
                                         fontSize: R.sw(16, context)),
                                     items: list.map<DropdownMenuItem<String>>(
                                         (String value) {
@@ -342,13 +343,13 @@ class _EditProfileState extends State<EditProfile> {
                                       ),
                                       child: Icon(
                                         Icons.keyboard_arrow_down_outlined,
-                                        color: Color(0xffC7C4C0),
+                                        color: const Color(0xffC7C4C0),
                                         size: R.sw(25, context),
                                       ),
                                     ),
                                     value: drobdownvalue2,
                                     style: TextStyle(
-                                      color: Color(0xff454545),
+                                      color: const Color(0xff454545),
                                       fontSize: R.sw(16, context),
                                     ),
                                     items: list.map<DropdownMenuItem<String>>(
@@ -388,13 +389,13 @@ class _EditProfileState extends State<EditProfile> {
                                           left: R.sw(30, context)),
                                       child: Icon(
                                         Icons.keyboard_arrow_down_outlined,
-                                        color: Color(0xffC7C4C0),
+                                        color: const Color(0xffC7C4C0),
                                         size: R.sw(25, context),
                                       ),
                                     ),
                                     value: drobdownvalue3,
                                     style: TextStyle(
-                                        color: Color(0xff454545),
+                                        color: const Color(0xff454545),
                                         fontSize: R.sw(16, context)),
                                     items: list.map<DropdownMenuItem<String>>(
                                         (String value) {
@@ -410,12 +411,12 @@ class _EditProfileState extends State<EditProfile> {
                                     }),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   "~",
                                   style: TextStyle(
                                       fontSize: R.sw(20, context),
-                                      color: Color(0xff4B4948),
+                                      color: const Color(0xff4B4948),
                                       fontWeight: FontWeight.normal),
                                 ),
                               ),
@@ -435,13 +436,13 @@ class _EditProfileState extends State<EditProfile> {
                                           left: R.sw(30, context)),
                                       child: Icon(
                                         Icons.keyboard_arrow_down_outlined,
-                                        color: Color(0xffC7C4C0),
+                                        color: const Color(0xffC7C4C0),
                                         size: R.sw(25, context),
                                       ),
                                     ),
                                     value: drobdownvalue4,
                                     style: TextStyle(
-                                        color: Color(0xff454545),
+                                        color: const Color(0xff454545),
                                         fontSize: R.sw(16, context)),
                                     items: list.map<DropdownMenuItem<String>>(
                                         (String value) {
@@ -460,13 +461,11 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                         ),
                         Richtext(text: "定休日"),
-
-                        ///we could use check box for getting the value when tappped///
                         SizedBox(
                           width: R.sw(300, context),
                           height: R.sh(150, context),
                           child: GridView.builder(
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             padding: EdgeInsets.all(R.sw(5, context)),
                             itemCount: checklist.length,
                             gridDelegate:
@@ -475,10 +474,29 @@ class _EditProfileState extends State<EditProfile> {
                             itemBuilder: (context, index) {
                               return Row(
                                 children: [
-                                  Image.asset(checklist[index].img!),
-                                  Padding(
-                                    padding: EdgeInsets.all(R.sw(8, context)),
-                                    child: Text(checklist[index].txt!),
+                                  SizedBox(
+                                    width: R.sw(20, context),
+                                    height: R.sh(20, context),
+                                    child: Checkbox(
+                                      activeColor: const Color(0xffEE7D42),
+                                      value: checklist[index].bool,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          checklist[index].bool = value;
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: R.sw(40, context),
+                                    height: R.sh(20, context),
+                                    child: Center(
+                                      child: Text(
+                                        checklist[index].txt!,
+                                        style: const TextStyle(
+                                            color: Color(0xff4B4948)),
+                                      ),
+                                    ),
                                   )
                                 ],
                               );
@@ -504,11 +522,11 @@ class _EditProfileState extends State<EditProfile> {
                                   "料理カテゴリー選択",
                                   style: TextStyle(
                                       fontSize: R.sw(16, context),
-                                      color: Color(0xffC7C4C0)),
+                                      color: const Color(0xffC7C4C0)),
                                 ),
                                 Icon(
                                   Icons.keyboard_arrow_down_rounded,
-                                  color: Color(0xffC7C4C0),
+                                  color: const Color(0xffC7C4C0),
                                   size: R.sw(25, context),
                                 )
                               ],
@@ -535,7 +553,7 @@ class _EditProfileState extends State<EditProfile> {
                                     "¥ 1,000",
                                     style: TextStyle(
                                         fontSize: R.sw(16, context),
-                                        color: Color(0xff454545)),
+                                        color: const Color(0xff454545)),
                                   ),
                                 ),
                               ),
@@ -545,7 +563,7 @@ class _EditProfileState extends State<EditProfile> {
                                   "~",
                                   style: TextStyle(
                                       fontSize: R.sw(20, context),
-                                      color: Color(0xff4B4948),
+                                      color: const Color(0xff4B4948),
                                       fontWeight: FontWeight.normal),
                                 ),
                               ),
@@ -563,7 +581,7 @@ class _EditProfileState extends State<EditProfile> {
                                     "¥ 2,000",
                                     style: TextStyle(
                                         fontSize: R.sw(16, context),
-                                        color: Color(0xff454545)),
+                                        color: const Color(0xff454545)),
                                   ),
                                 ),
                               ),
@@ -588,7 +606,7 @@ class _EditProfileState extends State<EditProfile> {
                                   "美味しい！リーズナブルなオムライスランチ！",
                                   style: TextStyle(
                                       fontSize: R.sw(15, context),
-                                      color: Color(0xff454545)),
+                                      color: const Color(0xff454545)),
                                 ),
                               )),
                         ),
@@ -610,7 +628,7 @@ class _EditProfileState extends State<EditProfile> {
                                   "40席",
                                   style: TextStyle(
                                       fontSize: R.sw(16, context),
-                                      color: Color(0xff454545)),
+                                      color: const Color(0xff454545)),
                                 ),
                               )),
                         ),
@@ -625,7 +643,7 @@ class _EditProfileState extends State<EditProfile> {
                                 "有",
                                 style: TextStyle(
                                     fontSize: R.sw(16, context),
-                                    color: Color(0xff4B4948)),
+                                    color: const Color(0xff4B4948)),
                               ),
                               Padding(
                                 padding: EdgeInsets.only(
@@ -637,7 +655,7 @@ class _EditProfileState extends State<EditProfile> {
                                 "無",
                                 style: TextStyle(
                                     fontSize: R.sw(16, context),
-                                    color: Color(0xff4B4948)),
+                                    color: const Color(0xff4B4948)),
                               ),
                             ],
                           ),
@@ -653,7 +671,7 @@ class _EditProfileState extends State<EditProfile> {
                                 "有",
                                 style: TextStyle(
                                     fontSize: R.sw(16, context),
-                                    color: Color(0xff4B4948)),
+                                    color: const Color(0xff4B4948)),
                               ),
                               Padding(
                                 padding: EdgeInsets.only(
@@ -665,7 +683,7 @@ class _EditProfileState extends State<EditProfile> {
                                 "無",
                                 style: TextStyle(
                                     fontSize: R.sw(16, context),
-                                    color: Color(0xff4B4948)),
+                                    color: const Color(0xff4B4948)),
                               ),
                             ],
                           ),
@@ -673,24 +691,37 @@ class _EditProfileState extends State<EditProfile> {
                         Richtext(text: "来店プレゼント"),
                         Row(
                           children: [
-                            Image.asset("assets/images/check.png"),
-                            Text(
-                              "有（最大３枚まで）",
-                              style: TextStyle(
-                                  fontSize: R.sw(16, context),
-                                  color: Color(0xff4B4948)),
+                            SizedBox(
+                                width: R.sw(20, context),
+                                child: Image.asset("assets/images/check.png")),
+                            SizedBox(
+                              width: R.sw(160, context),
+                              height: R.sh(30, context),
+                              child: Text(
+                                "有（最大３枚まで）",
+                                style: TextStyle(
+                                    fontSize: R.sw(16, context),
+                                    color: const Color(0xff4B4948)),
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(
                                   left: R.sw(50, context),
                                   right: R.sw(5, context)),
-                              child: Image.asset("assets/images/wrong.png"),
+                              child: Image.asset(
+                                "assets/images/wrong.png",
+                                width: R.sw(20, context),
+                              ),
                             ),
-                            Text(
-                              "無",
-                              style: TextStyle(
-                                  fontSize: R.sw(16, context),
-                                  color: Color(0xff4B4948)),
+                            SizedBox(
+                              width: R.sw(30, context),
+                              height: R.sh(30, context),
+                              child: Text(
+                                "無",
+                                style: TextStyle(
+                                    fontSize: R.sw(16, context),
+                                    color: const Color(0xff4B4948)),
+                              ),
                             ),
                           ],
                         ),
@@ -737,7 +768,7 @@ class _EditProfileState extends State<EditProfile> {
                                   "いちごクリームアイスクリーム, ジュース",
                                   style: TextStyle(
                                       fontSize: R.sw(16, context),
-                                      color: Color(0xff454545)),
+                                      color: const Color(0xff454545)),
                                 ),
                               )),
                         ),

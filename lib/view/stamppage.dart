@@ -155,10 +155,16 @@ class StampPage extends StatelessWidget {
                                             width: R.sw(42.97, context),
                                             height: R.sh(42.97, context),
                                           ),
-                                          Icon(
-                                            Icons.check_rounded,
-                                            color: Colors.white,
-                                            size: R.sw(20, context),
+                                          SizedBox(
+                                            width: R.sw(20, context),
+                                            height: R.sh(20, context),
+                                            child: Center(
+                                              child: Icon(
+                                                Icons.check_rounded,
+                                                color: Colors.white,
+                                                size: R.sw(20, context),
+                                              ),
+                                            ),
                                           )
                                         ]),
                                   ),
@@ -178,15 +184,15 @@ class StampPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                          right: 15,
-                          left: 15,
+                        padding: EdgeInsets.only(
+                          right: R.sw(15, context),
+                          left: R.sw(15, context),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(R.sw(8, context)),
                               child: Text(
                                 "スタンプ獲得履歴",
                                 style: TextStyle(
@@ -216,17 +222,25 @@ class StampPage extends StatelessWidget {
                                           fontSize: R.sw(12, context),
                                           color: const Color(0xffB5B5B5)),
                                     ),
-                                    subtitle: Text(
-                                      "スタンプを獲得しました。",
-                                      style: TextStyle(
-                                          color: const Color(0xff454545),
-                                          fontSize: R.sw(14, context)),
+                                    subtitle: SizedBox(
+                                      child: Text(
+                                        "スタンプを獲得しました。",
+                                        style: TextStyle(
+                                            color: const Color(0xff454545),
+                                            fontSize: R.sw(14, context)),
+                                      ),
                                     ),
-                                    trailing: Text(
-                                      "1 個",
-                                      style: TextStyle(
-                                          fontSize: R.sw(14, context),
-                                          fontWeight: FontWeight.bold),
+                                    trailing: SizedBox(
+                                      height: R.sh(50, context),
+                                      width: R.sw(50, context),
+                                      child: Center(
+                                        child: Text(
+                                          "1 個",
+                                          style: TextStyle(
+                                              fontSize: R.sw(14, context),
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
                                     ),
                                   );
                                 },

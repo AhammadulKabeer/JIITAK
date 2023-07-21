@@ -1,5 +1,5 @@
 class CheckModel {
-  String? img;
   String? txt;
-  CheckModel({required this.img, required this.txt});
+  dynamic? bool;
+  CheckModel({required this.txt, this.bool});
 }
