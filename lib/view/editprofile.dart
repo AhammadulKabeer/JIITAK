@@ -173,18 +173,15 @@ class _EditProfileState extends State<EditProfile> {
                                 width: R.sw(80, context),
                                 height: R.sh(80, context),
                                 child: DottedBorder(
+                                  borderPadding:
+                                      EdgeInsets.all(R.sw(5, context)),
                                   color: const Color(0xffE8E8E8),
                                   strokeWidth: R.sw(2, context),
                                   dashPattern: const [
                                     4,
                                     4,
                                   ],
-                                  child: Container(
-                                    width: R.sw(91, context),
-                                    height: R.sh(91, context),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(80),
-                                    ),
+                                  child: Center(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -199,11 +196,15 @@ class _EditProfileState extends State<EditProfile> {
                                               height: R.sh(30, context),
                                               color: const Color(0xff9C9896),
                                             )),
-                                        Text(
-                                          "写真を追加",
-                                          style: TextStyle(
-                                            color: const Color(0xff9C9896),
-                                            fontSize: R.sw(12, context),
+                                        SizedBox(
+                                          width: R.sw(40, context),
+                                          height: R.sh(20, context),
+                                          child: Text(
+                                            "写真を追加",
+                                            style: TextStyle(
+                                              color: const Color(0xff9C9896),
+                                              fontSize: R.sw(12, context),
+                                            ),
                                           ),
                                         )
                                       ],

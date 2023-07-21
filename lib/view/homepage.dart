@@ -61,7 +61,7 @@ class MyHomePage extends StatelessWidget {
               ],
             ),
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(R.sh(70, context)),
+              preferredSize: Size.fromHeight(R.sh(50, context)),
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: R.sh(15, context)),
                 child: Ink(

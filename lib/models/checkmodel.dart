@@ -1,5 +1,5 @@
 class CheckModel {
   String? txt;
-  dynamic? bool;
+  dynamic bool;
   CheckModel({required this.txt, this.bool});
 }
